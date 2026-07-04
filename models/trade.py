@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from typing import List, Optional
+from datetime import date, time
 
 
 @dataclass
@@ -8,9 +9,10 @@ class TradeLeg:
     buy_sell: str
     option_type: str
     strike: float
-    qty: int
+    quantity: int
     entry_price: float
     exit_price: float
+    pnl: float
 
 
 @dataclass
@@ -23,13 +25,13 @@ class Trade:
 
     expiry_type: str
 
-    entry_date: str
-    entry_time: str
+    entry_date: date
+    entry_time: time
 
-    exit_date: str
-    exit_time: str
+    exit_date: date
+    exit_time: time
 
-    pnl: float
+    total_pnl: float
 
     vix: Optional[float] = None
 
