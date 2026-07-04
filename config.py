@@ -1,18 +1,11 @@
-from pathlib import Path
+# Strategy Information
 
-# Root folder of the project
-BASE_DIR = Path(__file__).resolve().parent
+STRATEGY_NAME = "0DTE Calendar"
 
-# Data folders
-DATA_DIR = BASE_DIR / "data"
-RAW_DATA_DIR = DATA_DIR / "raw"
-PROCESSED_DATA_DIR = DATA_DIR / "processed"
+SYMBOL = "NIFTY"
 
-# Specific data sources
-ALGOTEST_DIR = RAW_DATA_DIR / "algotest"
-STOCKMOCK_DIR = RAW_DATA_DIR / "stockmock"
-NSE_DIR = RAW_DATA_DIR / "nse"
-VIX_DIR = RAW_DATA_DIR / "vix"
+EXPIRY_TYPE = "Weekly"
 
-# Output folders
-REPORTS_DIR = BASE_DIR / "reports"
+LOT_SIZE = 75
+
+CAPITAL = 1000000
