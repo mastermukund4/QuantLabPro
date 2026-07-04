@@ -1,31 +1,24 @@
 from dataclasses import dataclass
 
+from models.activity_report import ActivityReport
+from models.returns_report import ReturnsReport
+from models.edge_report import EdgeReport
+from models.equity_report import EquityReport
+from models.drawdown_report import DrawdownReport
+
 
 @dataclass
 class PerformanceReport:
+    """
+    Master Performance Report
+    """
 
-    # Trading Activity
-    total_trades: int
-    winning_trades: int
-    losing_trades: int
-    breakeven_trades: int
+    activity: ActivityReport
 
-    win_rate: float
-    loss_rate: float
+    returns: ReturnsReport
 
-    # Returns
-    gross_profit: float
-    gross_loss: float
-    net_profit: float
+    edge: EdgeReport
 
-    average_winning_trade: float
-    average_losing_trade: float
-    average_pnl_per_trade: float
+    equity: EquityReport
 
-    best_trade: float
-    worst_trade: float
-
-    # Strategy Edge
-    payoff_ratio: float
-    profit_factor: float
-    expectancy_r: float
+    drawdown: DrawdownReport
