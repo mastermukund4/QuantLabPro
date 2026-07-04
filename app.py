@@ -1,18 +1,32 @@
-from importers.algotest import AlgoTestImporter
+from models.trade import Trade
 
-FILE_PATH = "data/raw/algotest/calendar_trade.csv"
 
 def main():
 
-    print("=" * 60)
-    print("QuantLab Pro")
-    print("=" * 60)
+    trade = Trade(
+        trade_id="1",
 
-    importer = AlgoTestImporter(FILE_PATH)
+        strategy="Calendar",
 
-    df = importer.load()
+        symbol="NIFTY",
 
-    print("\nFile imported successfully!")
+        expiry_type="Weekly",
+
+        entry_date="03-Jul-2025",
+        entry_time="09:16",
+
+        exit_date="03-Jul-2025",
+        exit_time="15:27",
+
+        pnl=1284.75,
+
+        vix=14.6,
+
+        number_of_legs=2
+    )
+
+    print(trade)
+
 
 if __name__ == "__main__":
     main()
