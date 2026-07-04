@@ -1,8 +1,18 @@
-print("Welcome to QuantLab Pro!")
-from config import BASE_DIR
+from importers.algotest import AlgoTestImporter
 
-print("=" * 50)
-print("Welcome to QuantLab Pro")
-print("=" * 50)
+FILE_PATH = "data/raw/algotest/calendar_trade.csv"
 
-print(f"Project Folder : {BASE_DIR}")
+def main():
+
+    print("=" * 60)
+    print("QuantLab Pro")
+    print("=" * 60)
+
+    importer = AlgoTestImporter(FILE_PATH)
+
+    df = importer.load()
+
+    print("\nFile imported successfully!")
+
+if __name__ == "__main__":
+    main()
