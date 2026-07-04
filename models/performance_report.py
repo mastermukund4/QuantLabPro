@@ -4,29 +4,28 @@ from dataclasses import dataclass
 @dataclass
 class PerformanceReport:
 
-    # Basic
+    # Trading Activity
     total_trades: int
     winning_trades: int
     losing_trades: int
     breakeven_trades: int
+
+    win_rate: float
+    loss_rate: float
 
     # Returns
     gross_profit: float
     gross_loss: float
     net_profit: float
 
-    # Win/Loss
-    win_rate: float
-    loss_rate: float
+    average_winning_trade: float
+    average_losing_trade: float
+    average_pnl_per_trade: float
 
-    average_winner: float
-    average_loser: float
+    best_trade: float
+    worst_trade: float
 
-    largest_winner: float
-    largest_loser: float
-
+    # Strategy Edge
     payoff_ratio: float
     profit_factor: float
-
-    expectancy_rupees: float
     expectancy_r: float
