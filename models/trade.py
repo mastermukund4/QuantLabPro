@@ -1,5 +1,16 @@
-from dataclasses import dataclass
-from typing import Optional
+from dataclasses import dataclass, field
+from typing import List, Optional
+
+
+@dataclass
+class TradeLeg:
+    leg_no: int
+    buy_sell: str
+    option_type: str
+    strike: float
+    qty: int
+    entry_price: float
+    exit_price: float
 
 
 @dataclass
@@ -22,4 +33,4 @@ class Trade:
 
     vix: Optional[float] = None
 
-    number_of_legs: int = 0
+    legs: List[TradeLeg] = field(default_factory=list)
