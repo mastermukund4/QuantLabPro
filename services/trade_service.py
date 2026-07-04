@@ -10,20 +10,30 @@ class TradeService:
 
     def run(self):
 
-        # Load CSV
         importer = AlgoTestImporter(self.filepath)
         df = importer.load()
 
-        # Parse Trades
         parser = TradeParser()
         trades = parser.parse(df)
 
-        # Analyze Performance
-        analyzer = PerformanceAnalyzer()
+        from analytics.drawdown import DrawdownAnalyzer
+
+        analyzer = DrawdownAnalyzer()
+
         report = analyzer.analyze(trades)
 
-        # Print Report
-        self.print_report(report)
+        print("=" * 60)
+        print("DRAWDOWN ENGINE TEST")
+        print("=" * 60)
+
+        print(f"Maximum Drawdown : ₹{report.max_drawdown_rupees:,.2f}")
+        print(f"Maximum DD %     : {report.max_drawdown_percent:.2f}%")
+
+        print(f"Current Drawdown : ₹{report.current_drawdown_rupees:,.2f}")
+        print(f"Current DD %     : {report.current_drawdown_percent:.2f}%")
+
+        print("\nFirst 10 Drawdowns")
+        print(report.drawdown_curve[:10])
 
     def print_report(self, report):
 
