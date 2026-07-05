@@ -1,142 +1,297 @@
-# QuantLab Pro Roadmap
-
-## Vision
-
-Build an institutional-grade quantitative research platform for options trading.
-
-The platform should support:
-
-- AlgoTest
-- StockMock
-- Broker Tradebooks
-- Portfolio Analytics
-- AI-assisted Research
-- Institutional Performance Reporting
+# QuantLab Pro Roadmap (Frozen)
+**Version:** PDP v1.0 (Product Development Plan)
 
 ---
 
-# Version Progress
+# Vision
 
-| Version | Status | Description |
-|----------|--------|-------------|
-| v0.1 | ✅ | CSV Import |
-| v0.2 | ✅ | Trade Parser |
-| v0.3 | ✅ | Activity Analytics |
-| v0.4 | ✅ | Returns & Strategy Edge |
-| v0.5 | ✅ | Modular Analytics |
-| v1.0 | ✅ | Equity & Drawdown Engine |
-| v1.1 | ✅ | Professional Excel Workbook |
-| v1.2 | 🚧 | Advanced Analytics |
-| v2.0 | ⏳ | Portfolio Engine |
-| v3.0 | ⏳ | AI Research Platform |
+QuantLab Pro is an institutional-grade quantitative research platform for options traders.
 
----
+Its purpose is to help traders:
 
-# Phase 1 — Core Analytics
+- Import trades from multiple sources
+- Analyse strategies scientifically
+- Build portfolios of uncorrelated strategies
+- Optimize capital allocation
+- Monitor live performance
+- Generate institutional-quality reports
+- Produce AI-assisted research and insights
 
-## Data Import
-
-- [x] AlgoTest Importer
-- [ ] StockMock Importer
-- [ ] Broker Tradebook Importer
-
-## Trade Engine
-
-- [x] Trade Model
-- [x] Trade Leg Model
-- [x] Trade Parser
-
-## Analytics
-
-- [x] Activity Analyzer
-- [x] Returns Analyzer
-- [x] Strategy Edge Analyzer
-- [x] Equity Analyzer
-- [x] Drawdown Analyzer
-- [x] Monthly Analyzer
-- [ ] Weekly Analyzer
-- [ ] Weekday Analyzer
-- [ ] Trade Duration Analyzer
-- [ ] Streak Analyzer
-- [ ] Calendar Analyzer
+This roadmap is **frozen**. New ideas will be added to the Backlog and implemented only after the current phase is completed.
 
 ---
 
-# Phase 2 — Strategy Analytics
+# Development Principles
 
-- [ ] CE vs PE Analysis
-- [ ] Strike Analysis
-- [ ] Buy vs Sell Analysis
-- [ ] Expiry Analysis
-- [ ] VIX Analysis
-- [ ] Premium Analysis
-- [ ] Legs Analytics
-
----
-
-# Phase 3 — Risk Analytics
-
-- [ ] CAGR
-- [ ] Sharpe Ratio
-- [ ] Sortino Ratio
-- [ ] Calmar Ratio
-- [ ] Ulcer Index
-- [ ] Recovery Factor
-- [ ] Risk of Ruin
-- [ ] Rolling Drawdown
+1. One sprint at a time.
+2. One module at a time.
+3. Every module is tested independently before integration.
+4. Integration happens only after successful testing.
+5. Features are completed before cosmetic improvements.
+6. Architecture is not redesigned during a sprint unless a critical bug blocks development.
+7. New ideas are added to the Backlog and do not interrupt the current roadmap.
+8. Every release must leave the project in a stable, working state.
+9. Every milestone is committed to Git before starting the next sprint.
 
 ---
 
-# Phase 4 — Excel Reporting
+# Development Workflow
 
-## Workbook
-
-- [x] Dashboard
-- [x] Performance
-- [x] Trade Log
-- [x] Trade Legs
-
-## Remaining
-
-- [ ] Monthly
-- [ ] Weekly
-- [ ] Calendar
-- [ ] Charts
-- [ ] Executive Summary
-- [ ] AI Insights
-
----
-
-# Phase 5 — Portfolio
-
-- [ ] Multiple Strategies
-- [ ] Portfolio Performance
-- [ ] Correlation Matrix
-- [ ] Allocation Engine
-- [ ] Capital Allocation
-- [ ] Strategy Ranking
+```
+Idea
+   ↓
+Architecture
+   ↓
+Implementation
+   ↓
+Module Testing
+   ↓
+Integration
+   ↓
+Regression Testing
+   ↓
+Git Commit
+   ↓
+Next Sprint
+```
 
 ---
 
-# Phase 6 — AI
+# PHASE 0 — Foundation ✅
 
-- [ ] Trade Quality Score
-- [ ] Strategy Comparison
-- [ ] AI Coach
-- [ ] Pattern Recognition
-- [ ] Natural Language Reports
+Completed
+
+- Project Structure
+- Git Integration
+- AlgoTest Importer
+- Trade Parser
+- Trade Model
+- Trade Leg Model
+- Activity Analytics
+- Returns Analytics
+- Strategy Edge
+- Equity Engine
+- Drawdown Engine
+- Excel Export Framework
+
+Milestone
+
+- ✅ v1.1
 
 ---
 
-# Long-Term Vision
+# PHASE 1 — Core Analytics
 
-QuantLab Pro should become a complete quantitative research platform capable of:
+Objective
 
-- Importing trades from multiple sources
-- Generating institutional-grade reports
-- Backtesting strategies
-- Portfolio optimization
-- AI-powered trading insights
-- Professional Excel dashboards
-- Web dashboard
-- Cloud synchronization
+Build every analytical engine required to evaluate a single trading strategy.
+
+Sprint 1
+- Monthly Analytics
+
+Sprint 2
+- Weekly Analytics
+
+Sprint 3
+- Weekday Analytics
+
+Sprint 4
+- Trade Duration Analytics
+
+Sprint 5
+- Win/Loss Streak Analytics
+
+Sprint 6
+- Calendar Analytics
+
+Sprint 7
+- Risk Analytics
+    - CAGR
+    - Sharpe Ratio
+    - Sortino Ratio
+    - Calmar Ratio
+    - Recovery Factor
+    - Ulcer Index
+
+Milestone
+
+- v1.5
+
+---
+
+# PHASE 2 — Strategy Analytics
+
+Objective
+
+Understand why strategies perform well or poorly.
+
+Modules
+
+- Trade Legs Analytics
+- CE vs PE Analysis
+- Buy vs Sell Analysis
+- Long vs Short Analysis
+- Strike Analysis
+- ATM / ITM / OTM Analysis
+- Expiry Analysis
+- Premium Analysis
+- VIX Analysis
+
+Milestone
+
+- v2.0
+
+---
+
+# PHASE 3 — Portfolio Engine
+
+Objective
+
+Manage multiple strategies as one portfolio.
+
+Modules
+
+- Portfolio Model
+- Multiple CSV Import
+- Strategy Comparison
+- Correlation Matrix
+- Capital Allocation
+- Risk Contribution
+- Portfolio Dashboard
+
+Milestone
+
+- v2.5
+
+---
+
+# PHASE 4 — Professional Reporting
+
+Objective
+
+Generate institutional-grade reports.
+
+Workbook
+
+- Dashboard
+- Executive Summary
+- Performance
+- Trade Log
+- Trade Legs
+- Monthly
+- Weekly
+- Weekday
+- Duration
+- Calendar
+- Streak
+- Risk
+- Charts
+- Portfolio
+- AI Insights
+
+Milestone
+
+- v3.0
+
+---
+
+# PHASE 5 — Market Intelligence
+
+Modules
+
+- NIFTY Data
+- BANKNIFTY Data
+- India VIX History
+- Economic Calendar
+- FII / DII Data
+- Market Regime Detection
+- Volatility Regime
+
+Milestone
+
+- v3.5
+
+---
+
+# PHASE 6 — AI Research Platform
+
+Modules
+
+- AI Coach
+- Strategy Ranking
+- Trade Quality Score
+- Pattern Recognition
+- Similar Trade Detection
+- AI Recommendations
+- Natural Language Reports
+
+Milestone
+
+- v4.0
+
+---
+
+# PHASE 7 — Web Platform
+
+Modules
+
+- FastAPI Backend
+- PostgreSQL
+- Authentication
+- Dashboard
+- Interactive Charts
+- Cloud Synchronization
+
+Milestone
+
+- v5.0
+
+---
+
+# Long-Term Workflow
+
+```
+Strategy Idea
+        ↓
+AlgoTest Backtest
+        ↓
+QuantLab Pro Import
+        ↓
+Analytics
+        ↓
+Strategy Evaluation
+        ↓
+Portfolio Construction
+        ↓
+Capital Allocation
+        ↓
+Risk Monitoring
+        ↓
+AI Research
+        ↓
+Continuous Improvement
+```
+
+---
+
+# Backlog
+
+The following ideas are intentionally deferred until the planned phase:
+
+- Additional importers (unless required)
+- UI redesigns
+- Extra Excel formatting
+- Theme improvements
+- Experimental analytics
+- Machine Learning models
+- Broker API integration
+- Live Trading
+- Mobile App
+
+---
+
+# Rule of the Project
+
+**No roadmap changes during a phase.**
+
+Ideas are welcome, but they will be recorded in the Backlog and implemented only after the current phase is complete unless they fix a critical bug or unblock development.
