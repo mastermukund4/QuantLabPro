@@ -1,5 +1,8 @@
 from pathlib import Path
+
 import pandas as pd
+
+from cleaners.data_cleaner import DataCleaner
 
 
 class AlgoTestImporter:
@@ -14,50 +17,17 @@ class AlgoTestImporter:
         """
 
         if not self.filepath.exists():
+
             raise FileNotFoundError(
                 f"File not found: {self.filepath}"
             )
 
+        # Read CSV
         df = pd.read_csv(self.filepath)
 
-        # ----------------------------------------
-        # Convert Date Columns
-        # ----------------------------------------
+        # Clean Data
+        cleaner = DataCleaner()
 
-        date_columns = [
-            "Entry Date",
-            "Exit Date"
-        ]
-
-        for col in date_columns:
-
-            if col in df.columns:
-
-                df[col] = pd.to_datetime(
-                    df[col],
-                    errors="coerce"
-                ).dt.date
-
-        # ----------------------------------------
-        # Convert Time Columns
-        # Supports:
-        # 09:20:00 AM
-        # 15:20:00
-        # ----------------------------------------
-
-        time_columns = [
-            "Entry Time",
-            "Exit Time"
-        ]
-
-        for col in time_columns:
-
-            if col in df.columns:
-
-                df[col] = pd.to_datetime(
-                    df[col],
-                    format="mixed",
-                    errors="coerce"
-                ).dt.time
+        df = cleaner.clean(df)
 
         return df
