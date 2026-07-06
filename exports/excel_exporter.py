@@ -8,6 +8,7 @@ from exports.sheets.trade_legs_sheet import TradeLegsSheet
 from exports.sheets.monthly_sheet import MonthlySheet
 from exports.sheets.weekly_sheet import WeeklySheet
 from exports.sheets.weekday_sheet import WeekdaySheet
+from exports.sheets.duration_sheet import DurationSheet
 
 
 class ExcelExporter:
@@ -18,7 +19,6 @@ class ExcelExporter:
 
         workbook.remove(workbook.active)
 
-        # Core Sheets
         DashboardSheet().build(workbook, report)
 
         PerformanceSheet().build(workbook, report)
@@ -27,12 +27,13 @@ class ExcelExporter:
 
         TradeLegsSheet().build(workbook, trades)
 
-        # Analytics Sheets
         MonthlySheet().build(workbook, report)
 
         WeeklySheet().build(workbook, report)
 
         WeekdaySheet().build(workbook, report)
+
+        DurationSheet().build(workbook, report)
 
         workbook.save("exports/QuantLab_Report.xlsx")
 

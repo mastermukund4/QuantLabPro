@@ -142,3 +142,104 @@ The current roadmap remains unchanged. This process improvement will be implemen
 **Target Phase**
 
 After Phase 1 – Core Analytics
+
+---
+
+## BL-003 💡
+### Project Documentation Sprint
+
+**Description**
+
+After the successful completion of **Phase 1 – Core Analytics**, dedicate one sprint exclusively to documenting the project.
+
+The objective is to ensure that QuantLab Pro is self-documenting, maintainable, and easy for future contributors (or ourselves months later) to understand.
+
+### Deliverables
+
+```
+docs/
+
+Architecture.md
+FolderStructure.md
+CodingStandards.md
+DeveloperGuide.md
+```
+
+### Document Scope
+
+#### Architecture.md
+
+- High-level system architecture
+- Data flow
+- Analytics pipeline
+- Excel export architecture
+- Module dependency diagram
+
+---
+
+#### FolderStructure.md
+
+Explain every major folder.
+
+Example:
+
+```
+analytics/
+cleaners/
+config/
+data/
+exports/
+importers/
+models/
+services/
+tests/
+docs/
+```
+
+---
+
+#### CodingStandards.md
+
+Development conventions such as:
+
+- Naming conventions
+- File structure
+- Class design
+- Function length guidelines
+- Dataclass standards
+- Error handling
+- Type hints
+- Import order
+- Formatting standards
+
+---
+
+#### DeveloperGuide.md
+
+Guide for future development.
+
+Topics:
+
+- How to add a new analytics module
+- How to create a report model
+- How to add an Excel sheet
+- How to integrate into PerformanceAnalyzer
+- Testing workflow
+- Git workflow
+- Release workflow
+
+### Benefits
+
+- Easier maintenance
+- Consistent architecture
+- Faster onboarding
+- Better long-term scalability
+- Reduced technical debt
+
+### Reason for Deferral
+
+Documentation should reflect a stable architecture. Completing it after **Phase 1 – Core Analytics** ensures the core analytics framework is mature enough to document accurately.
+
+### Target Phase
+
+Immediately after **Phase 1 – Core Analytics**, before starting **Phase 2 – Strategy Analytics**.

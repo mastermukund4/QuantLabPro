@@ -88,4 +88,7 @@ class TradeService:
         if report.weekday:
             print(f"{'Weekday Analysis':35}: Available ({len(report.weekday.weekdays)} weekdays)")
 
+        if report.duration:
+            print(f"{'Duration Analysis':35}: Available ({len(report.duration.durations)} buckets)")
+
         print("=" * 75)

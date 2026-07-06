@@ -8,23 +8,19 @@ from models.drawdown_report import DrawdownReport
 from models.monthly_report import MonthlyReport
 from models.weekly_report import WeeklyReport
 from models.weekday_report import WeekdayReport
+from models.duration_report import DurationReport
 
 
 @dataclass
 class PerformanceReport:
 
     activity: ActivityReport
-
     returns: ReturnsReport
-
     edge: EdgeReport
-
     equity: EquityReport
-
     drawdown: DrawdownReport
 
     monthly: MonthlyReport | None = None
-
     weekly: WeeklyReport | None = None
-
     weekday: WeekdayReport | None = None
+    duration: DurationReport | None = None
