@@ -7,6 +7,7 @@ from analytics.monthly import MonthlyAnalyzer
 from analytics.weekly import WeeklyAnalyzer
 from analytics.weekday import WeekdayAnalyzer
 from analytics.duration import DurationAnalyzer
+from analytics.streak import StreakAnalyzer
 
 from models.performance_report import PerformanceReport
 
@@ -24,6 +25,7 @@ class PerformanceAnalyzer:
         weekly = WeeklyAnalyzer().analyze(trades)
         weekday = WeekdayAnalyzer().analyze(trades)
         duration = DurationAnalyzer().analyze(trades)
+        streak = StreakAnalyzer().analyze(trades)
 
         return PerformanceReport(
             activity=activity,
@@ -34,5 +36,6 @@ class PerformanceAnalyzer:
             monthly=monthly,
             weekly=weekly,
             weekday=weekday,
-            duration=duration
+            duration=duration,
+            streak=streak
         )

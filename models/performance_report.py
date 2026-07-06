@@ -9,6 +9,7 @@ from models.monthly_report import MonthlyReport
 from models.weekly_report import WeeklyReport
 from models.weekday_report import WeekdayReport
 from models.duration_report import DurationReport
+from models.streak_report import StreakReport
 
 
 @dataclass
@@ -24,3 +25,4 @@ class PerformanceReport:
     weekly: WeeklyReport | None = None
     weekday: WeekdayReport | None = None
     duration: DurationReport | None = None
+    streak: StreakReport | None = None

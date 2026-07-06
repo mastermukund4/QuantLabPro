@@ -35,7 +35,6 @@ class TradeService:
 
         print("\n📊 TRADING ACTIVITY")
         print("-" * 75)
-
         print(f"{'Total Trades':35}: {report.activity.total_trades}")
         print(f"{'Winning Trades':35}: {report.activity.winning_trades}")
         print(f"{'Losing Trades':35}: {report.activity.losing_trades}")
@@ -45,7 +44,6 @@ class TradeService:
 
         print("\n💰 RETURNS")
         print("-" * 75)
-
         print(f"{'Gross Profit':35}: ₹{report.returns.gross_profit:,.2f}")
         print(f"{'Gross Loss':35}: ₹{report.returns.gross_loss:,.2f}")
         print(f"{'Net Profit':35}: ₹{report.returns.net_profit:,.2f}")
@@ -57,20 +55,17 @@ class TradeService:
 
         print("\n🎯 STRATEGY EDGE")
         print("-" * 75)
-
         print(f"{'Payoff Ratio':35}: {report.edge.payoff_ratio:.2f}")
         print(f"{'Profit Factor':35}: {report.edge.profit_factor:.2f}")
         print(f"{'Expectancy (R)':35}: {report.edge.expectancy_r:.3f}")
 
         print("\n📈 EQUITY")
         print("-" * 75)
-
         print(f"{'Starting Capital':35}: ₹{report.equity.starting_capital:,.2f}")
         print(f"{'Ending Capital':35}: ₹{report.equity.ending_capital:,.2f}")
 
         print("\n📉 DRAWDOWN")
         print("-" * 75)
-
         print(f"{'Maximum Drawdown':35}: ₹{report.drawdown.max_drawdown_rupees:,.2f}")
         print(f"{'Maximum Drawdown %':35}: {report.drawdown.max_drawdown_percent:.2f}%")
         print(f"{'Current Drawdown':35}: ₹{report.drawdown.current_drawdown_rupees:,.2f}")
@@ -90,5 +85,8 @@ class TradeService:
 
         if report.duration:
             print(f"{'Duration Analysis':35}: Available ({len(report.duration.durations)} buckets)")
+
+        if report.streak:
+            print(f"{'Streak Analysis':35}: Available ({len(report.streak.streaks)} streaks)")
 
         print("=" * 75)
