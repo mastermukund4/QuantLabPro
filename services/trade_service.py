@@ -89,4 +89,7 @@ class TradeService:
         if report.streak:
             print(f"{'Streak Analysis':35}: Available ({len(report.streak.streaks)} streaks)")
 
+        if report.calendar:
+            print(f"{'Calendar Analysis':35}: Available ({len(report.calendar.days)} trading days)")
+
         print("=" * 75)
