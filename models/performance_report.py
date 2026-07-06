@@ -11,6 +11,7 @@ from models.weekday_report import WeekdayReport
 from models.duration_report import DurationReport
 from models.streak_report import StreakReport
 from models.calendar_report import CalendarReport
+from models.risk_report import RiskReport
 
 
 @dataclass
@@ -28,3 +29,4 @@ class PerformanceReport:
     duration: DurationReport | None = None
     streak: StreakReport | None = None
     calendar: CalendarReport | None = None
+    risk: RiskReport | None = None

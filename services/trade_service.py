@@ -19,8 +19,7 @@ class TradeService:
         parser = TradeParser()
         trades = parser.parse(df)
 
-        analyzer = PerformanceAnalyzer()
-        report = analyzer.analyze(trades)
+        report = PerformanceAnalyzer().analyze(trades)
 
         self.print_report(report)
 
@@ -91,5 +90,8 @@ class TradeService:
 
         if report.calendar:
             print(f"{'Calendar Analysis':35}: Available ({len(report.calendar.days)} trading days)")
+
+        if report.risk:
+            print(f"{'Risk Analysis':35}: Available")
 
         print("=" * 75)

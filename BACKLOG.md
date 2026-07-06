@@ -243,3 +243,42 @@ Documentation should reflect a stable architecture. Completing it after **Phase 
 ### Target Phase
 
 Immediately after **Phase 1 – Core Analytics**, before starting **Phase 2 – Strategy Analytics**.
+
+---
+
+## BL-004 💡
+### Advanced Professional Risk Metrics
+
+**Description**
+
+Extend the Risk Analytics engine with additional institutional-grade risk metrics.
+
+### Proposed Metrics
+
+#### Consecutive Risk
+
+- Maximum Consecutive Profit (₹)
+- Maximum Consecutive Loss (₹)
+
+#### Performance Ratios
+
+- Return / Drawdown Ratio
+- Gain-to-Pain Ratio
+- Expectancy Score (Normalized)
+
+### Benefits
+
+- Better strategy comparison
+- Improved portfolio optimization
+- Institutional-quality reporting
+- Supports AI strategy ranking
+
+### Reason for Deferral
+
+Current Sprint 7 already satisfies the roadmap definition of "Risk Analytics."
+
+These metrics enhance the module but are not required to complete Phase 1.
+
+### Target Phase
+
+Phase 2 — Strategy Analytics

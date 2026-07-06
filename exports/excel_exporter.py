@@ -11,6 +11,7 @@ from exports.sheets.weekday_sheet import WeekdaySheet
 from exports.sheets.duration_sheet import DurationSheet
 from exports.sheets.streak_sheet import StreakSheet
 from exports.sheets.calendar_sheet import CalendarSheet
+from exports.sheets.risk_sheet import RiskSheet
 
 
 class ExcelExporter:
@@ -32,6 +33,7 @@ class ExcelExporter:
         DurationSheet().build(workbook, report)
         StreakSheet().build(workbook, report)
         CalendarSheet().build(workbook, report)
+        RiskSheet().build(workbook, report)
 
         workbook.save("exports/QuantLab_Report.xlsx")
 

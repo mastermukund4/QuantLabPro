@@ -9,6 +9,7 @@ from analytics.weekday import WeekdayAnalyzer
 from analytics.duration import DurationAnalyzer
 from analytics.streak import StreakAnalyzer
 from analytics.calendar import CalendarAnalyzer
+from analytics.risk.risk import RiskAnalyzer
 
 from models.performance_report import PerformanceReport
 
@@ -28,6 +29,7 @@ class PerformanceAnalyzer:
         duration = DurationAnalyzer().analyze(trades)
         streak = StreakAnalyzer().analyze(trades)
         calendar = CalendarAnalyzer().analyze(trades)
+        risk = RiskAnalyzer().analyze(trades)
 
         return PerformanceReport(
             activity=activity,
@@ -40,5 +42,6 @@ class PerformanceAnalyzer:
             weekday=weekday,
             duration=duration,
             streak=streak,
-            calendar=calendar
+            calendar=calendar,
+            risk=risk
         )
