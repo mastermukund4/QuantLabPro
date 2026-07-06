@@ -5,13 +5,12 @@ from models.returns_report import ReturnsReport
 from models.edge_report import EdgeReport
 from models.equity_report import EquityReport
 from models.drawdown_report import DrawdownReport
+from models.monthly_report import MonthlyReport
+from models.weekly_report import WeeklyReport
 
 
 @dataclass
 class PerformanceReport:
-    """
-    Master Performance Report
-    """
 
     activity: ActivityReport
 
@@ -22,3 +21,7 @@ class PerformanceReport:
     equity: EquityReport
 
     drawdown: DrawdownReport
+
+    monthly: MonthlyReport | None = None
+
+    weekly: WeeklyReport | None = None

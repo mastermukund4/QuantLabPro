@@ -3,6 +3,8 @@ from analytics.returns import ReturnsAnalyzer
 from analytics.edge import EdgeAnalyzer
 from analytics.equity import EquityAnalyzer
 from analytics.drawdown import DrawdownAnalyzer
+from analytics.monthly import MonthlyAnalyzer
+from analytics.weekly import WeeklyAnalyzer
 
 from models.performance_report import PerformanceReport
 
@@ -21,6 +23,10 @@ class PerformanceAnalyzer:
 
         drawdown = DrawdownAnalyzer().analyze(trades)
 
+        monthly = MonthlyAnalyzer().analyze(trades)
+
+        weekly = WeeklyAnalyzer().analyze(trades)
+
         return PerformanceReport(
 
             activity=activity,
@@ -31,5 +37,9 @@ class PerformanceAnalyzer:
 
             equity=equity,
 
-            drawdown=drawdown
+            drawdown=drawdown,
+
+            monthly=monthly,
+
+            weekly=weekly
         )

@@ -1,7 +1,9 @@
 from importers.algotest import AlgoTestImporter
 from importers.parser import TradeParser
 
-from analytics.weekly import WeeklyAnalyzer
+from analytics.performance import PerformanceAnalyzer
+
+from exports.excel_exporter import ExcelExporter
 
 
 class TradeService:
@@ -11,52 +13,111 @@ class TradeService:
 
     def run(self):
 
+        # --------------------------------------------------
         # Load CSV
+        # --------------------------------------------------
+
         importer = AlgoTestImporter(self.filepath)
         df = importer.load()
 
+        # --------------------------------------------------
         # Parse Trades
+        # --------------------------------------------------
+
         parser = TradeParser()
         trades = parser.parse(df)
 
-        # Weekly Analysis
-        analyzer = WeeklyAnalyzer()
+        # --------------------------------------------------
+        # Analyze Performance
+        # --------------------------------------------------
 
+        analyzer = PerformanceAnalyzer()
         report = analyzer.analyze(trades)
 
+        # --------------------------------------------------
+        # Console Report
+        # --------------------------------------------------
+
         self.print_report(report)
+
+        # --------------------------------------------------
+        # Export Excel
+        # --------------------------------------------------
+
+        ExcelExporter().export(report, trades)
 
     def print_report(self, report):
 
         print()
+        print("=" * 75)
+        print("QUANTLAB PRO - PERFORMANCE REPORT")
+        print("=" * 75)
 
-        print("=" * 80)
-        print("QUANTLAB PRO - WEEKLY ANALYTICS TEST")
-        print("=" * 80)
+        # --------------------------------------------------
+        # Trading Activity
+        # --------------------------------------------------
 
-        for week in report.weeks:
+        print("\n📊 TRADING ACTIVITY")
+        print("-" * 75)
 
-            print()
+        print(f"{'Total Trades':35}: {report.activity.total_trades}")
+        print(f"{'Winning Trades':35}: {report.activity.winning_trades}")
+        print(f"{'Losing Trades':35}: {report.activity.losing_trades}")
+        print(f"{'Breakeven Trades':35}: {report.activity.breakeven_trades}")
 
-            print(f"📅 {week.week}")
+        print(f"{'Win Rate':35}: {report.activity.win_rate:.2f}%")
+        print(f"{'Loss Rate':35}: {report.activity.loss_rate:.2f}%")
 
-            print("-" * 80)
+        # --------------------------------------------------
+        # Returns
+        # --------------------------------------------------
 
-            print(f"{'Total Trades':30} : {week.total_trades}")
-            print(f"{'Winning Trades':30} : {week.winning_trades}")
-            print(f"{'Losing Trades':30} : {week.losing_trades}")
+        print("\n💰 RETURNS")
+        print("-" * 75)
 
-            print(f"{'Gross Profit':30} : ₹{week.gross_profit:,.2f}")
-            print(f"{'Gross Loss':30} : ₹{week.gross_loss:,.2f}")
-            print(f"{'Net Profit':30} : ₹{week.net_profit:,.2f}")
+        print(f"{'Gross Profit':35}: ₹{report.returns.gross_profit:,.2f}")
+        print(f"{'Gross Loss':35}: ₹{report.returns.gross_loss:,.2f}")
+        print(f"{'Net Profit':35}: ₹{report.returns.net_profit:,.2f}")
 
-            print(f"{'Average P&L / Trade':30} : ₹{week.average_pnl:,.2f}")
+        print(f"{'Average Winning Trade':35}: ₹{report.returns.average_winning_trade:,.2f}")
+        print(f"{'Average Losing Trade':35}: ₹{report.returns.average_losing_trade:,.2f}")
+        print(f"{'Average P&L / Trade':35}: ₹{report.returns.average_pnl_per_trade:,.2f}")
 
-            print(f"{'Best Trade':30} : ₹{week.best_trade:,.2f}")
-            print(f"{'Worst Trade':30} : ₹{week.worst_trade:,.2f}")
+        print(f"{'Best Trade':35}: ₹{report.returns.best_trade:,.2f}")
+        print(f"{'Worst Trade':35}: ₹{report.returns.worst_trade:,.2f}")
 
-            print(f"{'Win Rate':30} : {week.win_rate:.2f}%")
-            print(f"{'Profit Factor':30} : {week.profit_factor:.2f}")
+        # --------------------------------------------------
+        # Strategy Edge
+        # --------------------------------------------------
 
-        print()
-        print("=" * 80)
+        print("\n🎯 STRATEGY EDGE")
+        print("-" * 75)
+
+        print(f"{'Payoff Ratio':35}: {report.edge.payoff_ratio:.2f}")
+        print(f"{'Profit Factor':35}: {report.edge.profit_factor:.2f}")
+        print(f"{'Expectancy (R)':35}: {report.edge.expectancy_r:.3f}")
+
+        # --------------------------------------------------
+        # Equity
+        # --------------------------------------------------
+
+        print("\n📈 EQUITY")
+        print("-" * 75)
+
+        print(f"{'Starting Capital':35}: ₹{report.equity.starting_capital:,.2f}")
+        print(f"{'Ending Capital':35}: ₹{report.equity.ending_capital:,.2f}")
+
+        # --------------------------------------------------
+        # Drawdown
+        # --------------------------------------------------
+
+        print("\n📉 DRAWDOWN")
+        print("-" * 75)
+
+        print(f"{'Maximum Drawdown':35}: ₹{report.drawdown.max_drawdown_rupees:,.2f}")
+        print(f"{'Maximum Drawdown %':35}: {report.drawdown.max_drawdown_percent:.2f}%")
+
+        print(f"{'Current Drawdown':35}: ₹{report.drawdown.current_drawdown_rupees:,.2f}")
+        print(f"{'Current Drawdown %':35}: {report.drawdown.current_drawdown_percent:.2f}%")
+
+        print("=" * 75)
