@@ -7,6 +7,7 @@ from models.equity_report import EquityReport
 from models.drawdown_report import DrawdownReport
 from models.monthly_report import MonthlyReport
 from models.weekly_report import WeeklyReport
+from models.weekday_report import WeekdayReport
 
 
 @dataclass
@@ -25,3 +26,5 @@ class PerformanceReport:
     monthly: MonthlyReport | None = None
 
     weekly: WeeklyReport | None = None
+
+    weekday: WeekdayReport | None = None

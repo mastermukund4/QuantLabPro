@@ -5,6 +5,7 @@ from analytics.equity import EquityAnalyzer
 from analytics.drawdown import DrawdownAnalyzer
 from analytics.monthly import MonthlyAnalyzer
 from analytics.weekly import WeeklyAnalyzer
+from analytics.weekday import WeekdayAnalyzer
 
 from models.performance_report import PerformanceReport
 
@@ -27,6 +28,8 @@ class PerformanceAnalyzer:
 
         weekly = WeeklyAnalyzer().analyze(trades)
 
+        weekday = WeekdayAnalyzer().analyze(trades)
+
         return PerformanceReport(
 
             activity=activity,
@@ -41,5 +44,7 @@ class PerformanceAnalyzer:
 
             monthly=monthly,
 
-            weekly=weekly
+            weekly=weekly,
+
+            weekday=weekday
         )
